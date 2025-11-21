@@ -2,34 +2,34 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedImage } from '@cloudinary/react';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 
-const Image = ({ publicId, width, height, alt, className }) => {
+const Image = ({ publicId, width, height, alt, className, loading = 'lazy' }) => {
   const cld = new Cloudinary({
     cloud: {
-      cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME, // Read cloudName from .env
+      cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME,
     },
   });
 
-  // Log error if publicId is not provided
   if (!publicId) {
     console.error('Error: publicId is required to load an image from Cloudinary.');
     return null;
   }
 
-  // Validate and provide default values for width and height
-  const validWidth = width || 300; // Default width if not provided
-  const validHeight = height || 300; // Default height if not provided
+  const validWidth = width || 300;
+  const validHeight = height || 300;
 
-  // Generate Cloudinary image object using the validated dimensions
+  // Generate optimized Cloudinary URL
   const img = cld.image(publicId)
-    .resize(fill().width(validWidth).height(validHeight)) // Use validated dimensions
+    .resize(fill().width(validWidth).height(validHeight))
     .format('auto')
-    .quality('auto');
+    .quality('auto:eco'); // Use eco quality for faster loading
 
   return (
     <AdvancedImage
       cldImg={img}
-      alt={alt || 'Image'} // Default alt text
+      alt={alt || 'Image'}
       className={className}
+      loading={loading}
+      style={{ width: '100%', height: 'auto' }}
     />
   );
 };

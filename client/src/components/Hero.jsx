@@ -99,7 +99,6 @@ const Hero = () => {
                 width={800}
                 height={600}
               />
-              <div className="absolute inset-0 bg-black/40" />
             </div>
           ))}
           
@@ -116,7 +115,6 @@ const Hero = () => {
                 width={800}
                 height={600}
               />
-              <div className="absolute inset-0 bg-black/40" />
             </div>
           ))}
         </div>
@@ -136,9 +134,6 @@ const Hero = () => {
         </div>
 
       </div>
-
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-primary to-transparent" />
     </div>
   );
 };

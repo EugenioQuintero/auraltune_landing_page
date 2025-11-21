@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, WhatsApp } from '@mui/icons-material'; // Import social media icons from MUI
+import { Facebook, Instagram, WhatsApp, Email, Phone } from '@mui/icons-material'; // Import social media icons from MUI
 
 const Footer = () => {
   return (
@@ -39,10 +39,16 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-6">Contáctanos</h4>
           <ul className="space-y-4">
             <li>
-              <a href="mailto:tuneaural@gmail.com" className="text-gray-300 hover:text-white text-sm">Correo: tuneaural@gmail.com</a>
+              <a href="mailto:tuneaural@gmail.com" className="text-gray-300 hover:text-white text-sm flex items-center gap-2">
+                <Email className="w-5 h-5" />
+                tuneaural@gmail.com
+              </a>
             </li>
             <li>
-              <a href="tel:+528180999301" className="text-gray-300 hover:text-white text-sm">Teléfono: +52 8180999301</a>
+              <a href="tel:+528180999301" className="text-gray-300 hover:text-white text-sm flex items-center gap-2">
+                <Phone className="w-5 h-5" />
+                +52 8180999301
+              </a>
             </li>
             <li>
               <span className="text-gray-300 text-sm">Monterrey, NL, México</span>
@@ -52,11 +58,8 @@ const Footer = () => {
 
         {/* Information Links */}
         <div>
-          <h4 className="text-lg font-semibold mb-6"></h4>
+          <h4 className="text-lg font-semibold mb-6">Enlaces</h4>
           <ul className="space-y-4">
-            <li>
-              <Link to="/reseñas" className="text-gray-300 hover:text-white text-sm">Reseñas</Link>
-            </li>
             <li>
               <Link to="/cotizador" className="text-gray-300 hover:text-white text-sm">Cotizador</Link>
             </li>

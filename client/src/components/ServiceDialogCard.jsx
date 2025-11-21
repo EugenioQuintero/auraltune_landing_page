@@ -23,16 +23,14 @@ const ServiceDialogCard = ({ open, selectedCard, handleClose }) => {
         <div className="p-6 border-b border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900">{selectedCard.title}</h2>
         </div>
-        
+
         <div className="p-6 space-y-6">
           {selectedCard.image && (
             <div className="overflow-hidden bg-gray-50 rounded-lg">
               <Image
                 publicId={selectedCard.image}
-                width={6000}
-                height={4000}
-                quality="auto"
-                dpr="auto"
+                width={1000}
+                height={750}
                 alt={selectedCard.title}
                 className="w-full h-full object-cover"
                 loading="lazy"

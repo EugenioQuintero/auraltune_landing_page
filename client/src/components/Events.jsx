@@ -1,40 +1,18 @@
-import React, { useState } from 'react';
-import Tabs from './Tabs';
-import Dropdown from './Dropdown';
+import React from 'react';
 import ImageGallery from './ImageGallery';
 import { images } from './assets';
 
 const Events = () => {
-  const [selectedCategory, setSelectedCategory] = useState('Todos');
-
-  // Extract unique event categories
-  const categories = ['Todos', ...new Set(images.map((img) => img.title))];
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-  };
-
-  // Filter images based on the selected category
-  const filteredImages = selectedCategory === 'Todos'
-    ? images
-    : images.filter((img) => img.title === selectedCategory);
-
   return (
-    <section className="events-section max-w-7xl mx-auto">
-      <h2 className="text-4xl font-semibold text-center mb-8 text-white">Nuestros Eventos</h2>
+    <section className="events-section w-full py-16 mx-4 my-8">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-gray-900">
+          Nuestros Eventos
+        </h2>
 
-      {/* Tabs for Larger Screens */}
-      <div className="hidden md:block">
-        <Tabs categories={categories} selectedCategory={selectedCategory} onTabChange={handleCategoryChange} />
+        {/* Image Gallery Carousel */}
+        <ImageGallery images={images} />
       </div>
-
-      {/* Dropdown for Smaller Screens */}
-      <div className="md:hidden">
-        <Dropdown categories={categories} selectedCategory={selectedCategory} onDropdownChange={handleCategoryChange} />
-      </div>
-
-      {/* Image Gallery */}
-      <ImageGallery images={filteredImages} />
     </section>
   );
 };

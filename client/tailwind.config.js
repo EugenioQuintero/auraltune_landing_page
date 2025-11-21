@@ -15,6 +15,7 @@ export default {
         'primary': '#FFFFFF',
         'accent': '#2563EB', // Blue-600
         'highlight': '#FBB03B',
+        'prussian-blue': '#005ad1', // Blue for footer and trusted by section
         'gray': {
           50: '#F9FAFB',
           100: '#F3F4F6',
