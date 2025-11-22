@@ -12,10 +12,8 @@ const ServiceCard = forwardRef(({ title, description, image, price, showDetailsB
         <div className="aspect-[4/3] overflow-hidden bg-gray-50">
           <Image
             publicId={image}
-            width={6000}
-            height={4000}
-            quality="auto"
-            dpr="auto"
+            width={800}
+            height={600}
             alt={title}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"

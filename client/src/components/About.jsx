@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
 import Image from './Image';
 import useGsapScrollAnimation from '../hooks/useGsapScrollAnimation';
 
@@ -44,7 +45,7 @@ const About = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-16">
+    <section ref={sectionRef} className="bg-white pt-8 pb-16">
       <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:space-x-12 space-y-12 lg:space-y-0 px-4">
         {/* Image Section */}
         <div

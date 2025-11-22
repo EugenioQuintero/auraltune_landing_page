@@ -11,5 +11,16 @@ export default defineConfig({
 
   build: {
     sourcemap: true
+  },
+
+  // Proxy API requests to backend during development
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   }
 })

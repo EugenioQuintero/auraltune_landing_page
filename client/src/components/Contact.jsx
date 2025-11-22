@@ -41,8 +41,8 @@ const Contact = () => {
           Contáctanos hoy mismo para obtener una cotización personalizada o utiliza nuestro cotizador para comenzar a planear tu evento.
         </p>
 
-        <div className="mt-8 flex justify-center space-x-8">
-          <a href="/cotizador" className="btn-highlight">
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+          <a href="/cotizador" className="btn-highlight text-lg">
             Cotizador
           </a>
           <a
