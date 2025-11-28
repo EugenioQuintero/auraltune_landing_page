@@ -44,16 +44,15 @@ const Navbar = () => {
       const section = document.querySelector(id);
       if (section) {
         // Different offsets for different sections
-        let yOffset = -80; // Default offset
         const isMobile = window.innerWidth < 1024; // lg breakpoint
+        let yOffset = -80; // Default offset
 
         if (id === '#servicios') {
-          yOffset = 60;
+          yOffset = isMobile ? -80 : 60;
         } else if (id === '#sobre-nosotros') {
-          // Mobile needs more offset to show complete section
-          yOffset = isMobile ? 50 : -50;
+          yOffset = isMobile ? -140 : -50;
         } else if (id === '#eventos') {
-          yOffset = 50;
+          yOffset = isMobile ? -80 : 50;
         }
 
         const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -112,16 +111,15 @@ const Navbar = () => {
       setTimeout(() => {
         const section = document.querySelector(location.hash);
         if (section) {
-          let yOffset = -80;
           const isMobile = window.innerWidth < 1024; // lg breakpoint
+          let yOffset = -80;
 
           if (location.hash === '#servicios') {
-            yOffset = 60;
+            yOffset = isMobile ? -80 : 60;
           } else if (location.hash === '#sobre-nosotros') {
-            // Mobile needs more offset to show complete section
-            yOffset = isMobile ? 50 : -50;
+            yOffset = isMobile ? -140 : -50;
           } else if (location.hash === '#eventos') {
-            yOffset = 50;
+            yOffset = isMobile ? -80 : 50;
           }
 
           const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;

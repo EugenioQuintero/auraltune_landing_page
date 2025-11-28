@@ -44,7 +44,7 @@ const ImageGallery = ({ images }) => {
         className="mySwiper"
       >
         {images.map((image, index) => (
-          <SwiperSlide key={`${image.publicId}-${index}`} style={{ width: 'auto', maxWidth: '500px' }}>
+          <SwiperSlide key={`${image.publicId}-${index}`} style={{ width: 'auto' }}>
             <div
               className="relative overflow-hidden rounded-3xl md:rounded-2xl shadow-2xl cursor-pointer aspect-video"
               onClick={handleImageClick}
@@ -63,18 +63,69 @@ const ImageGallery = ({ images }) => {
       </Swiper>
 
       <style>{`
+        /* Swiper container - Responsive padding */
         .mySwiper {
-          padding: 50px 0 80px 0;
+          padding: 20px 0 40px 0;
         }
 
+        @media (min-width: 640px) {
+          .mySwiper {
+            padding: 30px 0 60px 0;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .mySwiper {
+            padding: 40px 0 70px 0;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .mySwiper {
+            padding: 50px 0 80px 0;
+          }
+        }
+
+        /* Swiper slides - Responsive maxWidth */
         .mySwiper .swiper-slide {
           background-position: center;
           background-size: cover;
+          max-width: 280px;
+        }
+
+        @media (min-width: 640px) {
+          .mySwiper .swiper-slide {
+            max-width: 350px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .mySwiper .swiper-slide {
+            max-width: 400px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .mySwiper .swiper-slide {
+            max-width: 500px;
+          }
         }
 
         /* Pagination bullets styling */
         .mySwiper .swiper-pagination {
-          bottom: 20px;
+          bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+          .mySwiper .swiper-pagination {
+            bottom: 15px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .mySwiper .swiper-pagination {
+            bottom: 20px;
+          }
         }
 
         .mySwiper .swiper-pagination-bullet {
@@ -116,6 +167,32 @@ const ImageGallery = ({ images }) => {
           transform: scale(1.1);
         }
 
+        /* Mobile responsive - Extra small devices */
+        @media (max-width: 639px) {
+          .mySwiper .swiper-button-next,
+          .mySwiper .swiper-button-prev {
+            width: 36px;
+            height: 36px;
+          }
+
+          .mySwiper .swiper-button-next:after,
+          .mySwiper .swiper-button-prev:after {
+            font-size: 14px;
+          }
+
+          .mySwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+          }
+
+          .mySwiper .swiper-pagination-bullet-active {
+            width: 14px;
+            height: 14px;
+          }
+        }
+
+        /* Tablet responsive */
         @media (max-width: 768px) {
           .mySwiper .swiper-button-next,
           .mySwiper .swiper-button-prev {
