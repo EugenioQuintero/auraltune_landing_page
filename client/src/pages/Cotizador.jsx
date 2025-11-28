@@ -25,6 +25,9 @@ import LiveTotalSidebar, { LiveTotalBottomBar } from '../components/LiveTotalSid
 import Footer from '../components/Footer';
 import { generateQuoteEmailHTML } from '../utils/pricingUtils';
 
+// Backend API URL - usar variable de entorno o fallback a Render
+const API_URL = import.meta.env.VITE_API_URL || 'https://auraltune-landing-page.onrender.com';
+
 const steps = [
   'Número de Invitados',
   'Arma tu Paquete',
@@ -101,9 +104,8 @@ const Cotizador = () => {
         timestamp: new Date().toISOString()
       };
 
-      // TODO: Replace with your actual backend endpoint
-      // For now, we'll simulate sending to tuneaural@gmail.com
-      const response = await fetch('/api/quotes', {
+      // Send quote to backend
+      const response = await fetch(`${API_URL}/api/quotes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
