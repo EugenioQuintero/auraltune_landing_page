@@ -15,6 +15,8 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://auraltune.com',
   'https://www.auraltune.com',
+  'https://auraltune.com.mx',
+  'https://www.auraltune.com.mx',
   'https://auraltune-landing-page.vercel.app',
   process.env.FRONTEND_URL
 ].filter(Boolean);
