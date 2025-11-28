@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Image from './Image';
 import useGsapScrollAnimation from '../hooks/useGsapScrollAnimation';
 import { clients } from './assets';
@@ -8,6 +8,7 @@ const Corporate = () => {
   const headingRef = useRef(null);
   const logoRefs = useRef([]);
   const videoRef = useRef(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const refs = {
     trigger: sectionRef,
@@ -31,12 +32,21 @@ const Corporate = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Force play on mount
+    // Show video only when it's playing
+    const handlePlaying = () => {
+      setVideoLoaded(true);
+    };
+
+    // Force play with delay to avoid showing play button
     const playVideo = async () => {
       try {
+        // Small delay to let video load
+        await new Promise(resolve => setTimeout(resolve, 100));
         await video.play();
       } catch (error) {
         console.log('Video autoplay prevented:', error);
+        // If autoplay fails, still show the video
+        setVideoLoaded(true);
       }
     };
 
@@ -49,9 +59,11 @@ const Corporate = () => {
       }
     };
 
+    video.addEventListener('playing', handlePlaying);
     video.addEventListener('timeupdate', handleTimeUpdate);
 
     return () => {
+      video.removeEventListener('playing', handlePlaying);
       video.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, []);
@@ -75,6 +87,15 @@ const Corporate = () => {
         .corporate-video::-webkit-media-controls-start-playback-button {
           display: none !important;
         }
+
+        /* Hide the large play button overlay on Safari iOS */
+        .corporate-video::before {
+          display: none !important;
+        }
+
+        .corporate-video {
+          transition: opacity 0.5s ease-in-out;
+        }
       `}</style>
 
       {/* Video Background - Full Width with Seamless Loop */}
@@ -87,12 +108,13 @@ const Corporate = () => {
         preload="auto"
         disablePictureInPicture
         disableRemotePlayback
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-40 corporate-video"
+        className="absolute top-0 left-0 w-full h-full object-cover corporate-video"
         style={{
           filter: 'brightness(0.8)',
           minHeight: '100%',
           minWidth: '100%',
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          opacity: videoLoaded ? 0.4 : 0
         }}
       >
         <source src="/fondo.mp4" type="video/mp4" />
