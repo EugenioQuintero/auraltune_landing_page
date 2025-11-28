@@ -65,16 +65,16 @@ const Corporate = () => {
         <source src="/fondo.mp4" type="video/mp4" />
       </video>
 
-      {/* Content with proper padding and container */}
-      <div className="relative z-10 py-12">
+      {/* Content with proper padding and container - Compacto y balanceado */}
+      <div className="relative z-10 py-4 md:py-6">
         <div className="container mx-auto px-4">
           <h2
             ref={headingRef}
-            className="text-white text-center text-4xl font-semibold mb-8"
+            className="text-white text-center text-2xl md:text-3xl font-semibold mb-4"
           >
             Trusted by
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 items-center justify-items-center max-w-5xl mx-auto">
             {clients.map((client, index) => (
               <div
                 key={client.name}
@@ -83,10 +83,10 @@ const Corporate = () => {
               >
                 <Image
                   publicId={client.image}
-                  width={120}
-                  height={120}
+                  width={96}
+                  height={96}
                   alt={client.name}
-                  className="w-20 h-20 md:w-28 md:h-28 object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
                   loading="lazy"
                 />
               </div>

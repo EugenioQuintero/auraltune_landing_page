@@ -44,15 +44,15 @@ const ImageGallery = ({ images }) => {
         className="mySwiper"
       >
         {images.map((image, index) => (
-          <SwiperSlide key={`${image.publicId}-${index}`} style={{ width: 'auto', maxWidth: '700px' }}>
+          <SwiperSlide key={`${image.publicId}-${index}`} style={{ width: 'auto', maxWidth: '500px' }}>
             <div
-              className="relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
+              className="relative overflow-hidden rounded-3xl md:rounded-2xl shadow-2xl cursor-pointer aspect-video"
               onClick={handleImageClick}
             >
               <img
-                src={`https://res.cloudinary.com/dchxrai89/image/upload/c_fill,w_700,h_490,g_auto,q_auto:eco,f_auto/${image.publicId}`}
+                src={`https://res.cloudinary.com/dchxrai89/image/upload/c_fill,w_600,h_338,g_auto,q_auto:eco,f_auto/${image.publicId}`}
                 alt={image.description || image.title}
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
                 fetchpriority="low"

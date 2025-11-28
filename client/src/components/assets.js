@@ -490,8 +490,9 @@ export const clients = [
   { name: 'Club Alpino Chipinque', image: 'auraltune/corporate_logos/alpino' },
   { name: 'Cuasartt', image: 'auraltune/corporate_logos/causartt' },
   { name: 'French Fried Cafe', image: 'auraltune/corporate_logos/frenchf' },
-  { name: 'Client 6', image: '8_p4u9gt' },
-  { name: 'Client 7', image: '9_tdlx2i' },
-  { name: 'Client 8', image: '10_hcpc0j' },
+  { name: 'Suzuki', image: '8_p4u9gt' },
+  { name: 'Deportivo San Agustín', image: '9_tdlx2i' },
+  { name: 'Palestino Libanés', image: '10_hcpc0j' },
+  { name: 'Corporate', image: 'corporate_logos_mgwkne' },
 ];
 

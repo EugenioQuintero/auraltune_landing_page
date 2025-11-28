@@ -125,9 +125,9 @@ const Hero = () => {
         ref={textRef}
         className="absolute inset-0 flex items-center justify-center z-10"
       >
-        <div className="px-4 sm:px-6 md:px-8">
+        <div className="px-4 sm:px-6 md:px-8 max-w-full">
           <h1 className="text-center">
-            <span className="text-white text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-wider whitespace-nowrap">
+            <span className="text-white text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight sm:tracking-wider whitespace-nowrap">
               ELEVATE YOUR <span className="text-highlight">AURA</span>
             </span>
           </h1>
