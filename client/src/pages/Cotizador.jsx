@@ -2,6 +2,7 @@
 // New Interactive Package Builder - 4 Step Flow
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Stepper,
   Step,
@@ -17,6 +18,7 @@ import {
   Alert,
   CircularProgress
 } from '@mui/material';
+import { FaHome } from 'react-icons/fa';
 import AttendeeSelector from '../components/AttendeeSelector';
 import ComponentBuilder from '../components/ComponentBuilder';
 import StaffSelector from '../components/StaffSelector';
@@ -36,6 +38,7 @@ const steps = [
 ];
 
 const Cotizador = () => {
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [attendees, setAttendees] = useState(100);
   const [packageSelections, setPackageSelections] = useState({
@@ -259,6 +262,17 @@ Gracias!
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto p-4 pt-24 pb-20">
+        {/* Back to Home Button */}
+        <div className="mb-4">
+          <button
+            onClick={() => navigate('/')}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 hover:text-[#005ad1] rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium border border-gray-200"
+          >
+            <FaHome className="text-lg" />
+            <span>Volver al Inicio</span>
+          </button>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-8">
           <Typography variant="h3" className="font-bold text-gray-800 mb-2">

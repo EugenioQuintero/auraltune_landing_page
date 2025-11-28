@@ -45,10 +45,12 @@ const Services = () => {
 
       {/* Grid de 2 columnas */}
       <div className="grid grid-cols-2 gap-3 md:gap-4 mb-6">
-        {servicios.map((servicio) => (
+        {servicios.map((servicio, index) => (
           <div
             key={servicio.id}
-            className="bg-white border-2 border-blue-100 rounded-xl p-3 md:p-5 hover:shadow-2xl hover:border-[#005ad1] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 ease-out group relative overflow-hidden cursor-pointer"
+            className={`bg-white border-2 border-blue-100 rounded-xl p-3 md:p-5 hover:shadow-2xl hover:border-[#005ad1] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 ease-out group relative overflow-hidden cursor-pointer ${
+              index === servicios.length - 1 ? 'md:col-start-1 md:col-end-3 md:max-w-md md:mx-auto md:w-full' : ''
+            }`}
           >
             {/* Acento azul en la esquina */}
             <div className="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#005ad1]/10 rounded-bl-full group-hover:bg-[#005ad1]/20 transition-all"></div>
