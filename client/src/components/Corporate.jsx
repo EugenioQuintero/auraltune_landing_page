@@ -129,22 +129,25 @@ const Corporate = () => {
           >
             Trusted by
           </h2>
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 items-center justify-items-center max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 md:gap-x-8 md:gap-y-6 lg:gap-x-12 lg:gap-y-4 max-w-5xl mx-auto">
             {clients.map((client, index) => (
-              <div
-                key={client.name}
-                ref={(el) => (logoRefs.current[index] = el)}
-                className="flex justify-center items-center w-full"
-              >
-                <Image
-                  publicId={client.image}
-                  width={96}
-                  height={96}
-                  alt={client.name}
-                  className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
-                  loading="lazy"
-                />
-              </div>
+              <React.Fragment key={client.name}>
+                <div
+                  ref={(el) => (logoRefs.current[index] = el)}
+                  className="flex justify-center items-center"
+                >
+                  <Image
+                    publicId={client.image}
+                    width={96}
+                    height={96}
+                    alt={client.name}
+                    className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Forzar salto de línea después del 5to logo en desktop */}
+                {index === 4 && <div className="hidden lg:block lg:w-full h-0" />}
+              </React.Fragment>
             ))}
           </div>
         </div>
