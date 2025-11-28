@@ -31,7 +31,7 @@ const Contact = () => {
   return (
     <div
       ref={sectionRef}
-      className="bg-primary text-gray-900 flex items-center justify-center -mt-96 md:-mt-28"
+      className="bg-primary text-gray-900 flex items-center justify-center -mt-40 md:-mt-28"
     >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold">

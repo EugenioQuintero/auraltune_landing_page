@@ -45,7 +45,7 @@ const About = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white -mt-40 pt-0 pb-4 md:-mt-28 md:pt-1 md:pb-8">
+    <section ref={sectionRef} className="bg-white -mt-20 pt-0 pb-4 md:-mt-28 md:pt-1 md:pb-8">
       <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:space-x-12 space-y-8 lg:space-y-0 px-4">
         {/* Image Section */}
         <div
