@@ -26,10 +26,21 @@ const Corporate = () => {
     toggleActions: 'play reverse play reverse',
   });
 
-  // Seamless loop - restart video slightly before it ends
+  // Force video playback on mount (especially for mobile)
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // Force play on mount
+    const playVideo = async () => {
+      try {
+        await video.play();
+      } catch (error) {
+        console.log('Video autoplay prevented:', error);
+      }
+    };
+
+    playVideo();
 
     const handleTimeUpdate = () => {
       // Restart video 0.1 seconds before it ends for seamless loop
@@ -47,6 +58,25 @@ const Corporate = () => {
 
   return (
     <div ref={sectionRef} className="relative overflow-hidden bg-prussian-blue">
+      <style>{`
+        /* Hide video controls on all browsers */
+        .corporate-video::-webkit-media-controls {
+          display: none !important;
+        }
+        .corporate-video::-webkit-media-controls-enclosure {
+          display: none !important;
+        }
+        .corporate-video::-webkit-media-controls-panel {
+          display: none !important;
+        }
+        .corporate-video::-webkit-media-controls-play-button {
+          display: none !important;
+        }
+        .corporate-video::-webkit-media-controls-start-playback-button {
+          display: none !important;
+        }
+      `}</style>
+
       {/* Video Background - Full Width with Seamless Loop */}
       <video
         ref={videoRef}
@@ -55,11 +85,14 @@ const Corporate = () => {
         muted
         playsInline
         preload="auto"
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
+        disablePictureInPicture
+        disableRemotePlayback
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-40 corporate-video"
         style={{
           filter: 'brightness(0.8)',
           minHeight: '100%',
-          minWidth: '100%'
+          minWidth: '100%',
+          pointerEvents: 'none'
         }}
       >
         <source src="/fondo.mp4" type="video/mp4" />
